@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "447639644886",
+    "project_id": "dht112-d7452",
+    "storage_bucket": "dht112-d7452.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447639644886:android:f3f6312d383c82f697b777",
+        "android_client_info": {
+          "package_name": "com.example.historial_exit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN67o5Et9RrV_E40B6I59ozis9uVCX9ao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
