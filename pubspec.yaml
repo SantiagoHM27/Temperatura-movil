@@ -12,10 +12,11 @@ dependencies:
 
 
   fluttertoast: ^8.2.2
-  firebase_core: ^2.26.0
+  firebase_core: ^2.27.0
   firebase_auth: ^4.4.0
   firebase_database: ^10.4.8
   font_awesome_flutter: ^10.7.0
+  cloud_firestore: ^4.15.8
   
 
 dev_dependencies:

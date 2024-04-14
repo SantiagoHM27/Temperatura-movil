@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:historial_exit/services/firebase_service.dart';
 import 'package:historial_exit/screens/saturacion.dart';
 
 class FrecuenciaCardiaca extends StatefulWidget {
@@ -44,16 +46,24 @@ class _FrecuenciaCardiacaState extends State<FrecuenciaCardiaca> {
           },
         ),
       ),
-      body: const Center(
-        child: SizedBox(
-          width: 100,
-          height: 100,
-          child: CircularProgressIndicator(
-            strokeWidth: 8,
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-          ),
-        ),
-      ),
+      body: FutureBuilder(
+        future: getEspData(),
+        builder: ((context, snapshot){
+          if ( snapshot.hasData){
+            return ListView.builder(
+              itemCount: snapshot.data?.length,
+              itemBuilder: (context, index){
+                return Center(child: Text(snapshot.data?[index]['Humidity']));
+              },
+            );
+          }
+          else{
+            return const Center(child: CircularProgressIndicator(),);
+          }
+        })
+      )
+      
+      ,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,

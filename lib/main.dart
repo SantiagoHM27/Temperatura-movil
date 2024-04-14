@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // Import Firebase Auth
+import 'package:firebase_auth/firebase_auth.dart'; 
+import 'package:historial_exit/services/firebase_service.dart';
 import 'package:historial_exit/screens/home_screen.dart';
 import 'package:historial_exit/screens/login_screen.dart';
 import 'package:historial_exit/screens/sign_up_page.dart';

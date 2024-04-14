@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           
             ListTile(
-              title: const Text('Temperatura y Humedad'),
+              title: const Text('Humedad'),
               onTap: () {
                 Navigator.pop(context); // Cerrar el Drawer
                 final ruta2 = MaterialPageRoute(builder: (context) {
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             ListTile(
-              title: const Text('Informacion'),
+              title: const Text('Temperatura'),
               onTap: () {
                 Navigator.pop(context); // Cerrar el Drawer
                 final ruta3 = MaterialPageRoute(builder: (context) {
@@ -67,11 +67,11 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           ListTile(
             title: const Text(
-              'Temperatura y humedad',
+              'Humedad',
               style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
             ),
             subtitle: const Text(
-              'Información sobre la temperatura y humedad',
+              'Monitorea la humedad de tu habitat',
               style: TextStyle(color: Color.fromARGB(181, 0, 0, 0)),
             ),
             leading: const Icon(
@@ -92,11 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
           const Divider(),
           ListTile(
             title: const Text(
-              'Información',
+              'Temperatura',
               style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
             ),
             subtitle: const Text(
-              'Información sobre la temperatura adecuada en algunos reptiles',
+              'Monitorea la temperatura de tu habitat',
               style: TextStyle(color: Color.fromARGB(181, 0, 0, 0)),
             ),
             leading: const Icon(
