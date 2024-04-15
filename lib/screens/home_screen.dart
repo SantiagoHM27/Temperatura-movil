@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:historial_exit/screens/frecuencia.dart';
+import 'package:historial_exit/screens/info.dart';
 import 'package:historial_exit/screens/saturacion.dart';
 
 
@@ -52,6 +53,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   return const SaturacionOxigeno();
                 });
                 Navigator.push(context, ruta3);
+              },
+            ),
+            ListTile(
+              title: const Text('Información'),
+              onTap: () {
+                Navigator.pop(context); // Cerrar el Drawer
+                final ruta4= MaterialPageRoute(builder: (context) {
+                  return  ReptilesScreen();
+                });
+                Navigator.push(context, ruta4);
               },
             ),
             ListTile(
@@ -115,6 +126,30 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           const Divider(),
+          ListTile(
+            title: const Text(
+              'Información',
+              style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+            ),
+            subtitle: const Text(
+              'Conoce a los reptiles',
+              style: TextStyle(color: Color.fromARGB(181, 0, 0, 0)),
+            ),
+            leading: const Icon(
+              Icons.book,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
+            trailing: const Icon(
+              Icons.arrow_right_outlined,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
+            onTap: () {
+              final ruta4 = MaterialPageRoute(builder: (context) {
+                return ReptilesScreen();
+              });
+              Navigator.push(context, ruta4);
+            },
+          ),
         ],
       ),
     );

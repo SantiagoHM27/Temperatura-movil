@@ -43,7 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Registrate",
+                "Regístrate",
                 style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -87,7 +87,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   child: Center(
                       child: isSigningUp ? CircularProgressIndicator(color: Colors.white,):Text(
-                    "Sign Up",
+                    "Registrar",
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   )),

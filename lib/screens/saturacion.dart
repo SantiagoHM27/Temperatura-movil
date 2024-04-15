@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:historial_exit/screens/info.dart';
 import 'package:historial_exit/services/firebase_service.dart';
 import 'package:historial_exit/screens/frecuencia.dart';
 
@@ -27,6 +28,12 @@ int _selectedIndex = 0;
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => const FrecuenciaCardiaca()),
+          );
+          break;
+          case 2:
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ReptilesScreen()),
           );
           break;
       }
@@ -125,6 +132,10 @@ int _selectedIndex = 0;
           BottomNavigationBarItem(
             icon: Icon(Icons.dew_point),
             label: 'Humedad'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dew_point),
+            label: 'información'
           ),
           
         ],

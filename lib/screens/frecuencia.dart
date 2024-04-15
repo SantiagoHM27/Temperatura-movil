@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:historial_exit/screens/info.dart';
 import 'package:historial_exit/services/firebase_service.dart';
 import 'package:historial_exit/screens/saturacion.dart';
 
@@ -28,6 +29,12 @@ class _FrecuenciaCardiacaState extends State<FrecuenciaCardiaca> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => const SaturacionOxigeno()),
+          );
+          break;
+        case 2:
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ReptilesScreen()),
           );
           break;
       }
@@ -128,6 +135,10 @@ body: FutureBuilder(
           BottomNavigationBarItem(
             icon: Icon(Icons.emoji_nature),
             label: 'Temperatura',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.emoji_nature),
+            label: 'Información',
           ),
         ],
       ),
