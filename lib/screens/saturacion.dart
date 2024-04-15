@@ -37,7 +37,7 @@ int _selectedIndex = 0;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Informacion'),
+        title: const Text('Temperatura del habitat'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -45,22 +45,73 @@ int _selectedIndex = 0;
           },
         ),
       ),
-       body: FutureBuilder(
-        future: getEspData(),
-        builder: ((context, snapshot){
-          if ( snapshot.hasData){
-            return ListView.builder(
-              itemCount: snapshot.data?.length,
-              itemBuilder: (context, index){
-                return Center(child: Text(snapshot.data?[index]['Temperature']));
-              },
-            );
-          }
-          else{
-            return const Center(child: CircularProgressIndicator(),);
-          }
-        })
-      )
+      body: FutureBuilder(
+  future: getEspData(),
+  builder: (context, snapshot) {
+    if (snapshot.hasData) {
+      return ListView.builder(
+        itemCount: snapshot.data?.length,
+        itemBuilder: (context, index) {
+          return Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              // Imagen encima del Container
+              Container(
+                width: double.infinity, // La imagen ocupará todo el ancho disponible
+                height: 200.0, // Altura fija para la imagen
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/img/profile-png-icon-2.png'), // Cambia a la ruta de tu imagen
+                    fit: BoxFit.cover, // Cubre todo el espacio sin perder las proporciones
+                  ),
+                ),
+              ),
+              // Container con el texto y la sombra
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: SizedBox(
+                  width: 500.0, // Ancho fijo del Container
+                  child: Container(
+                    height: 160.0, // Altura fija del Container
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.3),
+                    padding: EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.lightGreen.shade200, // Fondo de color del Container
+                      border: Border.all(color: Colors.black, width: 2.0),
+                      borderRadius: BorderRadius.circular(8.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5), // Color de la sombra
+                          spreadRadius: 0,
+                          blurRadius: 6,
+                          offset: Offset(0, 3), // Posición de la sombra
+                        ),
+                      ],
+                    ),
+                    child: Text(
+                      'Temperarura: ${snapshot.data?[index]['Temperature']}° C',
+                      style: TextStyle(
+                        fontFamily: 'Arial',
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    } else if (snapshot.hasError) {
+      return Center(child: Text('Error: ${snapshot.error}'));
+    } else {
+      return const Center(child: CircularProgressIndicator());
+    }
+  },
+)
       
       ,
       bottomNavigationBar: BottomNavigationBar(
@@ -73,7 +124,7 @@ int _selectedIndex = 0;
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.dew_point),
-            label: 'Temperatura y Humedad'
+            label: 'Humedad'
           ),
           
         ],

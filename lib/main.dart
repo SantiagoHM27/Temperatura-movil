@@ -12,20 +12,15 @@ import 'package:historial_exit/screens/splash_screen.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
+    // Inicialización para la plataforma web con opciones específicas.
     await Firebase.initializeApp(
-      options: FirebaseOptions(
-        apiKey: "AIzaSyAylDVV62eUIglaWdGpeY1sW-j_ytTyIFo",
-        authDomain: "dht112-d7452.firebaseapp.com",
-         projectId: "dht112-d7452",
-        storageBucket: "dht112-d7452.appspot.com",
-         messagingSenderId: "447639644886",
-        appId: "1:447639644886:web:75b5762b2c8b9c3897b777"
-        
-        // Your web Firebase config options
-      ),
+      options: DefaultFirebaseOptions.currentPlatform,
     );
   } else {
-    await Firebase.initializeApp();
+    // Inicialización para otras plataformas (Android, iOS, etc.).
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   }
   runApp(MyApp());
 }
@@ -33,13 +28,12 @@ Future main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Firebase',
       routes: {
         '/': (context) => SplashScreen(
-          // Here, you can decide whether to show the LoginPage or HomePage based on user authentication
+          // Aquí puedes decidir si mostrar LoginPage o HomePage basado en la autenticación del usuario.
           child: LoginPage(),
         ),
         '/login': (context) => LoginPage(),
