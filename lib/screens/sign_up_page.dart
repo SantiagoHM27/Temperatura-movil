@@ -34,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text("SignUp"),
+        title: Text(""),
       ),
       body: Center(
         child: Padding(
@@ -43,7 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Sign Up",
+                "Registrate",
                 style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -51,7 +51,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               FormContainerWidget(
                 controller: _usernameController,
-                hintText: "Username",
+                hintText: "Usuario",
                 isPasswordField: false,
               ),
               SizedBox(
@@ -67,7 +67,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               FormContainerWidget(
                 controller: _passwordController,
-                hintText: "Password",
+                hintText: "Contraseña",
                 isPasswordField: true,
               ),
               SizedBox(
@@ -99,7 +99,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an account?"),
+                  Text("Ya tienes una cuenta?"),
                   SizedBox(
                     width: 5,
                   ),
@@ -112,7 +112,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             (route) => false);
                       },
                       child: Text(
-                        "Login",
+                        "Inicia Sesión",
                         style: TextStyle(
                             color: Colors.blue, fontWeight: FontWeight.bold),
                       ))
